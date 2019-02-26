@@ -1,0 +1,17 @@
+RewriteEngine On
+Options 
++MultiViews
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+RewriteCond %{THE_REQUEST} \.html
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+
+RewriteCond %{SERVER_PORT} 80 
+
+RewriteRule ^(.*)$ https://walkadog.secondsection.in.rs/$1 [R=301,L]
+
+
+ErrorDocument 404 /error404.php
